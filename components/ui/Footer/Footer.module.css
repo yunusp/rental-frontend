@@ -1,0 +1,6 @@
+#footer {
+  @apply font-sans pb-2 h-full border-t-2
+   border-t-black grid
+   bg-white sticky items-center
+    justify-items-center font-bold;
+}
