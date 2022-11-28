@@ -1,9 +1,10 @@
 #header {
   @apply grid grid-cols-[repeat(20,_minmax(0,_1fr))] 
-            sticky top-0 h-4 font-sans border-b-2
-            border-b-black grid-flow-col text-lg mb-4
-            p-6 bg-white;
+            sticky top-0 font-sans border-b-2
+            border-b-black grid-flow-col text-lg
+            p-4 bg-white;
   align-content: center;
+  z-index: 100;
 }
 
 #site {
