@@ -2,7 +2,9 @@
   margin: 0%;
   padding: 0%;
   height: 100%;
-  display: grid;
-  grid-template-rows: 1fr 20fr;
+  /* display: grid; */
+  /* grid-template-rows: 1fr 20fr; */
   /* background-color: aqua; */
 }
+
+

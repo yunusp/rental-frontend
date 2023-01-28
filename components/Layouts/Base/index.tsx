@@ -1,4 +1,10 @@
-import styles from "./Base.module.css";
+import NavBar from "../../ui/Header";
+import styles from './Base.module.css';
 export default function BaseLayout({ children }: any) {
-    return (<div className={styles.base}>{children}</div>)
+    return (
+        <>
+            <NavBar />
+            <main className={styles.base}>{children}</main>
+        </>
+    )
 }

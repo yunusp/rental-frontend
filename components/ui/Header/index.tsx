@@ -1,6 +1,6 @@
 import styles from "./header.module.css";
 
-export default function Header() {
+export default function NavBar() {
     return (
             <div id={styles.header}>
                 <span id={styles.site}>
