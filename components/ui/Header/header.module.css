@@ -1,21 +1,15 @@
 #header {
-  @apply grid grid-cols-[repeat(20,_minmax(0,_1fr))] 
+  /* @apply grid grid-cols-[repeat(20,_minmax(0,_1fr))] 
             sticky top-0 font-sans border-b-2
             border-b-black grid-flow-col text-lg
-            p-4 bg-white;
+            p-4 bg-white; */
+      @apply flex w-screen justify-between content-center items-center sticky top-0 font-sans border-b-2
+      border-b-black text-lg
+      p-4 bg-white;
   align-content: center;
   z-index: 100;
 }
 
-#site {
-  @apply col-start-1 col-end-4 h-full text-left;
-}
-
-#sign {
-  /* grid-column: 19 / 21;
-  text-align: right; */
-  @apply col-start-[19] col-end-[21] text-right h-full;
-}
 
 .hclick {
   text-decoration: none;

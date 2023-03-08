@@ -4,8 +4,8 @@ export default function NavBar() {
     return (
             <div id={styles.header}>
                 <span id={styles.site}>
-                    <a className={styles.hclick} href="/">Home</a>
-                    <a className={styles.hclick} href="/">About</a>
+                    <Link className={styles.hclick} href="/">Home</Link>
+                    <Link className={styles.hclick} href="/about">About</Link>
                     <a className={styles.hclick} href="/">Contact</a>
                 </span>
                 <span id={styles.sign}>
