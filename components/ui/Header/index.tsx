@@ -6,7 +6,7 @@ export default function NavBar() {
                 <span id={styles.site}>
                     <Link className={styles.hclick} href="/">Home</Link>
                     <Link className={styles.hclick} href="/about">About</Link>
-                    <a className={styles.hclick} href="/">Contact</a>
+                    <Link className={styles.hclick} href="/contact">Contact</Link>
                 </span>
                 <span id={styles.sign}>
                     <a className={styles.hclick} href="/signin">Sign in</a>
