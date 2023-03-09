@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function FourOhFour() {
   return (<>
-    <Head><title>Rental - :(</title></Head>
+    <Head><title>Rental - 🙁</title></Head>
     <div className="h-full min-h-screen pb-2">
       <div className="flex pt-8 items-center h-screen text-8xl font-bold flex-col">
         <div>404</div>
