@@ -189,6 +189,7 @@ export default function Index() {
         <>
             <Head><title>Rental - Home</title></Head>
             <div className="h-full min-h-screen">
+                <div className="text-center text-5xl font-title pt-4 font-bold drop-shadow-lg">Browse our selection of cars</div> <br />
                 <div className="flex justify-center flex-wrap [&>*]:m-1">
                     {cardList.map(x => <CarCard name={x.name} price={x.price} dt={x.dt} />)}
                 </div>

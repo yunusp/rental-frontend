@@ -7,7 +7,7 @@ export default function About() {
             <div className="h-full pt-4">
                 <div className="w-7/12" id={styles["about-item"]}>
                     <div>
-                        <h1 className="text-center font-bold text-5xl drop-shadow-lg">About us</h1> <br />
+                        <h1 className="text-center font-title font-bold text-5xl drop-shadow-lg">About us</h1> <br />
                         <span id={styles["about-text"]}>
                             <p>This website was made by <i className="hover:font-bold hover:drop-shadow-lg">Yunus Poonawala (202000348)</i> for the final year project. Please have fun using it.</p>
                             <p>More things will go here probably. Decide what they will be later.</p>

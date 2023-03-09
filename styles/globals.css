@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
-
 
 html,
 body {
@@ -14,11 +12,6 @@ body {
   margin: 0;
 }
 
-/* body {
-  display: grid;
-  grid-template-rows: 1fr 20fr 1fr;
-} */
-
 :root {
   --bg-color: #fbf1c7;
   --primary-color: #282828;
@@ -27,8 +20,4 @@ body {
   --car-card-bg: #ebdbb2;
   --car-card-bg-secondary: #bdae93;
   --car-card-primary: #3c3836;
-}
-
-#__next {
-  /* height: 100%; */
 }

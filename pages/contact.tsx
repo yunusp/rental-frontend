@@ -6,7 +6,7 @@ export default function Contact() {
             <Head><title>Rental - Contact</title></Head>
             <div className="h-screen pt-4">
                 <div className="grid justify-center content-center">
-                    <h1 className="text-center font-bold text-5xl drop-shadow-lg">Contact us</h1> <br />
+                    <h1 className="text-center font-bold font-title text-5xl drop-shadow-lg">Contact us</h1> <br />
                     <span className="self-center grid content-center justify-center pt-4">
                         <form className="grid content-center justify-items-center justify-center pt-4" action="mailto:202000348@vupune.ac.in" method="post" encType="multipart/formdata">
                             <textarea name="message" id="msg" cols={80} rows={10} className="m-4" placeholder="Your message here"></textarea>
