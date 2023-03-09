@@ -1,4 +1,4 @@
-import NavBar from "../../ui/Header";
+import NavBar from "../../ui/NavBar";
 import styles from './Base.module.css';
 export default function BaseLayout({ children }: any) {
     return (

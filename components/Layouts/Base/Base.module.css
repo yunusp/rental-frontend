@@ -2,9 +2,8 @@
   margin: 0%;
   padding: 0%;
   height: 100%;
-  /* display: grid; */
-  /* grid-template-rows: 1fr 20fr; */
-  /* background-color: aqua; */
+  background-color: var(--bg-color);  /*Defined in globals.css*/
+  color: var(--primary-color);        /*Defined in globals.css*/
 }
 
 

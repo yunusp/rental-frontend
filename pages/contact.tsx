@@ -4,7 +4,7 @@ export default function Contact() {
     return (
         <>
             <Head><title>Rental - Contact</title></Head>
-            <div className="bg-blue-500 h-screen pt-4">
+            <div className="h-screen pt-4">
                 <div className="grid justify-center content-center">
                     <h1 className="text-center font-bold text-5xl drop-shadow-lg">Contact us</h1> <br />
                     <span className="self-center grid content-center justify-center pt-4">

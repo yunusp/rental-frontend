@@ -3,10 +3,10 @@ export default function Index() {
     return (
         <>
             <Head><title>Rental - Home</title></Head>
-            <div className="bg-blue-500 grid justify-center content-center h-screen">
+            <div className="grid justify-center content-center h-screen">
                 <div>
                     {/* <h2 className="text-7xl self-center text-center">🚓️🚓️🚓️🚓️</h2> */}
-                    <h1 className="text-7xl self-center font-bold">Rent a car</h1>
+                    <h1 className="text-7xl self-center font-bold font-body">Rent a car</h1>
                     <h2 className="text-7xl self-center text-center">🚓️🚓️🚓️🚓️</h2>
                 </div>
 
