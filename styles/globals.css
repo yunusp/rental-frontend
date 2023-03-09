@@ -9,7 +9,7 @@
 html,
 body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 0;
   margin: 0;
 }
@@ -18,18 +18,6 @@ body {
   display: grid;
   grid-template-rows: 1fr 20fr 1fr;
 } */
-
-
-@media (prefers-color-scheme: light) {
-  html {
-    color-scheme: dark;
-  }
-
-  body {
-    color: white;
-    background: black;
-  }
-}
 
 :root {
   --bg-color: #fbf1c7;
