@@ -25,6 +25,7 @@ body {
   --nav-bg: var(--primary-color);
   --nav-primary: #fbf1c7;
   --car-card-bg: #ebdbb2;
+  --car-card-bg-secondary: #bdae93;
   --car-card-primary: #3c3836;
 }
 
