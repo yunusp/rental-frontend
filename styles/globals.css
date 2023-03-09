@@ -21,9 +21,11 @@ body {
 
 :root {
   --bg-color: #fbf1c7;
-  --primary-color: #3c3836;
-  --nav-bg: #282828;
+  --primary-color: #282828;
+  --nav-bg: var(--primary-color);
   --nav-primary: #fbf1c7;
+  --car-card-bg: #ebdbb2;
+  --car-card-primary: #3c3836;
 }
 
 #__next {

@@ -1,0 +1,6 @@
+#card {
+    background-color: var(--car-card-bg);
+}
+#card > p {
+    color: var(--car-card-primary);
+}
