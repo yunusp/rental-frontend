@@ -1,0 +1,19 @@
+@keyframes blink {
+    from {
+        color: red;
+    }
+
+    to {
+        color: blue;
+    }
+
+    ;
+}
+
+#blinker {
+    animation-name: blink;
+    animation-duration: 100ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}   

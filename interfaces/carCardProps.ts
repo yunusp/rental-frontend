@@ -1,4 +1,5 @@
 export interface CarCardProps {
+    id? : number,   /*Unique id. Filled in by the map index for now*/
     name: string,   /*Name of car*/
     year?: number,  /*How old?*/
     dt: string,  /*For how long*/
