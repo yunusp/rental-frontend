@@ -18,7 +18,7 @@ export default function Index(props: CarCardPropObject) {
 
 }
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(_: any) {
     const jsonData = await fetch("http://localhost:3000/info.json", { method: "get" });
     const data: CarCardPropObject = await jsonData.json();
     return {
