@@ -1,0 +1,38 @@
+#sibutton {
+    border: 2px solid var(--car-card-primary);
+    border-radius: 5px;
+
+}
+
+#sibutton:hover {
+    background-color: var(--button-bg);
+    box-shadow: -10px 10px 20px var(--car-card-primary);
+}
+
+#form {
+    @apply font-body;
+}
+
+@keyframes zoom {
+    from {
+        @apply text-lg;
+    }
+
+    to {
+        @apply text-2xl;
+    }
+
+    ;
+}
+
+#form>input:focus {
+    animation-name: zoom;
+    animation-duration: 100ms;
+    animation-fill-mode: forwards;
+}
+
+#form>input {
+    /* border: 2px solid var(--car-card-primary) !important;
+    border-radius: 5px; */
+    @apply border border-black rounded-lg;
+}
