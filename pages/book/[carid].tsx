@@ -12,6 +12,7 @@ export default function Book() {
                 <div className="text-center text-5xl font-title pt-4 font-bold drop-shadow-lg">Book car #{carid}</div> <br />
                 <div id={styles.blinker} className="text-center text-3xl font-bold font-body">This is not complete! <br /> Please do not assume , even if it were for a for a passing moment, that this is final.</div>
                 <div className="flex justify-center flex-wrap [&>*]:m-1">
+                    <p className="text-9xl"> Come back to this later!!!</p>
                 </div>
             </div>
         </>
