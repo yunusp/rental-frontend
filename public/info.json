@@ -200,6 +200,20 @@
             "name": "Match Box",
             "price": 0,
             "dt": "1 year"
+        },
+        {
+            "name": "けつばん",
+            "price": 0,
+            "dt": "9999...999 years",
+            "picture": "nonum.png",
+            "description": "This car has a broken image"
+        },
+        {
+            "name": "Rem",
+            "price": 9191919,
+            "dt": "1 second",
+            "picture": "rem4.png",
+            "description": "Rem car! Rem car! Rem car!"
         }
     ]
 }

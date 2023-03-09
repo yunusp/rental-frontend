@@ -9,8 +9,7 @@ export default function Index(props: CarCardPropObject) {
             <div className="h-full min-h-screen pb-2">
                 <div className="text-center text-5xl font-title pt-4 font-bold drop-shadow-lg">Browse our selection of cars</div> <br />
                 <div className="flex justify-center flex-wrap [&>*]:m-1">
-                    {prop.map((data, index) => <CarCard id={index} key={index} name={data.name} dt={data.dt} price={data.price} description={data.description} />)}
-                    <CarCard name="けつばん" dt="9999...999 years" price={0.00} picture="aa" description="This car has a broken image" />
+                    {prop.map((data, index) => <CarCard id={index} key={index} name={data.name} dt={data.dt} price={data.price} description={data.description} picture={data.picture} />)}
                 </div>
             </div>
         </>
