@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link'
 
 export default function FourOhFour() {
   return (<>
@@ -10,7 +9,6 @@ export default function FourOhFour() {
         <div>Not Found</div>
         <div className='mt-4 text-3xl'>That's all we know.</div>
         <div className='mt-8 text-8xl'>🥺</div>
-
       </div>
     </div>
   </>);
