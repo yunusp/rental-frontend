@@ -1,0 +1,44 @@
+{
+    "cars": [
+        {
+            "name": "maruti suzuki",
+            "price": 40000,
+            "dt": "2 months"
+        },
+        {
+            "name": "maruti suzuki",
+            "price": 40000,
+            "dt": "2 months"
+        },
+        {
+            "name": "maruti suzuki",
+            "price": 40000,
+            "dt": "2 months"
+        },
+        {
+            "name": "maruti suzuki",
+            "price": 40000,
+            "dt": "2 months"
+        },
+        {
+            "name": "maruti suzuki",
+            "price": 40000,
+            "dt": "2 months"
+        },
+        {
+            "name": "maruti suzuki",
+            "price": 40000,
+            "dt": "2 months"
+        },
+        {
+            "name": "maruti suzuki",
+            "price": 40000,
+            "dt": "2 months"
+        },
+        {
+            "name": "maruti suzuki",
+            "price": 40000,
+            "dt": "2 months"
+        }
+    ]
+}

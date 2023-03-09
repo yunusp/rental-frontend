@@ -6,3 +6,7 @@ export interface CarCardProps {
     picture?: string,   /*url to pic of car*/
     description?: string,   /*misc descriptions*/
 }
+
+export interface CarCardPropObject {
+    cars: Array<CarCardProps>
+}
