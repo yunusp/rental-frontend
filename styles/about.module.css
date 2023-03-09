@@ -1,5 +1,5 @@
 #about-text {
-    @apply text-xl text-justify
+    @apply text-xl text-justify font-body
 }
 
 #about-item {
