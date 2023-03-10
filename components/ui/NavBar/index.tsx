@@ -9,8 +9,8 @@ export default function NavBar() {
                     <Link className={styles.hclick} href="/contact">Contact</Link>
                 </span>
                 <span id={styles.sign}>
-                    <a className={styles.hclick} href="/signin">Sign in</a>
-                    <a className={styles.hclick} href="/signup">Sign up</a>
+                    <Link className={styles.hclick} href="/signin">Sign in</Link>
+                    <Link className={styles.hclick} href="/signup">Sign up</Link>
                 </span>
             </div>
     );
