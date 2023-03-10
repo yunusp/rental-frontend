@@ -32,7 +32,5 @@
 }
 
 #form>input {
-    /* border: 2px solid var(--car-card-primary) !important;
-    border-radius: 5px; */
-    @apply border border-black rounded-lg;
+    @apply border border-black rounded-lg p-5;
 }

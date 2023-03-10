@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "../styles/signin.module.css"
+import styles from "../styles/sign.module.css"
 export default function SignIn() {
     return (
         <>

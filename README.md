@@ -3,6 +3,7 @@
 - [ ] Uuids on cars
 - [ ] Make cars appear without reloading
 - [ ] Animate on scroll
-- [ ] Car booking screen (with incomplete warnings)
+- [x] Car booking screen (with incomplete warnings)
 - [ ] Upload car
 - [ ] How ajax
+- [ ] Why does it look different in chrome??
