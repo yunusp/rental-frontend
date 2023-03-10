@@ -7,3 +7,4 @@
 - [ ] Upload car
 - [ ] How ajax
 - [ ] Why does it look different in chrome??
+- [ ] Handle pfp upload ux better
