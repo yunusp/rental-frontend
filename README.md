@@ -8,3 +8,5 @@
 - [ ] How ajax
 - [ ] Why does it look different in chrome??
 - [ ] Handle pfp upload ux better
+- [ ] Extract things out into a .env (localhost:8080 urls mostly)
+- [ ] Come up with consistent colors
