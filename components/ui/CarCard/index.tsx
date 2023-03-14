@@ -8,7 +8,7 @@ export default function CarCard(props: CarCardProps) {
     const carDesc: string = props.description ?? "No description given";
     const link: string = (props.id ?? "/404").toString();
     return (
-        <Link href={`/book/${link}`} draggable={false} id={styles.card} className=" p-1 border border-black rounded-lg drop-shadow w-64 h-64 flex flex-col content-between justify-start items-center">
+        <Link href={`/book/${link}`} data-aos="fade-left" draggable={false} id={styles.card} className=" p-1 border border-black rounded-lg drop-shadow w-64 h-64 flex flex-col content-between justify-start items-center">
             <img src={carImgUrl} alt={carDesc} className="h-1/2" draggable={false} />
             <p className="text-2xl text-center truncate w-60">{props.name}</p>
             <p className="text-center truncate w-60">{props.dt}</p>

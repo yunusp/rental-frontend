@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import BaseLayout from '../components/Layouts/Base'
 import { useEffect } from 'react';
 import AOS from "aos";
+import "aos/dist/aos.css"
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {

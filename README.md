@@ -10,6 +10,7 @@
 - [ ] Handle pfp upload ux better
 - [ ] Extract things out into a .env (localhost:8080 urls mostly)
 - [ ] Come up with consistent colors
+- [ ] Make routes be more sensible
 
 # Credits
 My beloved room mate and friend [alphanoobie](https://github.com/alphanoobie) -- Whose contributions, which lacked in quantity, made up for themselves in profundity.

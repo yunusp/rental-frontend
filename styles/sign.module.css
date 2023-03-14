@@ -34,3 +34,13 @@
 #form>input {
     @apply border border-black rounded-lg p-5;
 }
+
+#form-span>span>input {
+    @apply border border-black rounded-lg p-5 ml-4;
+}
+
+#form-spam>span>input:focus {
+    animation-name: zoom;
+    animation-duration: 100ms;
+    animation-fill-mode: forwards;
+}
