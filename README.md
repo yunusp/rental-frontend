@@ -14,6 +14,7 @@
 
 
 ## Notes
-To use jwt, generate 1 at login page and then send it as a hidden form field or something every time another form needs filling.
+- To use jwt, generate 1 at login page and then send it as a hidden form field or something every time another form needs filling.
+- Upload images to where? Can't put the whole thing in the db. Perhaps store them on some folder somewhere and generate uuids for them? which we store in db. Anyways, how to handle binary data with rocket
 # Credits
 My beloved room mate and friend [alphanoobie](https://github.com/alphanoobie) -- Whose contributions, which lacked in quantity, made up for themselves in profundity.

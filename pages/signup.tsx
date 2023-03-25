@@ -1,10 +1,50 @@
 import Head from "next/head";
-import { ChangeEvent, FormEvent, SetStateAction, useState } from "react";
+import { ChangeEvent, FormEvent, MutableRefObject, SetStateAction, useRef, useState } from "react";
 import styles from "../styles/sign.module.css"
 export default function SignUp() {
     const [pnumVal, setPNum] = useState('6000000000');
     function pnumChangeHandler(e: any) {
         setPNum(e.target.value)
+    }
+    const [formVal, setFormVal] = useState(0);
+    const fileRef: MutableRefObject<any> = useRef(null);
+    async function handleSubmit(e: any) {
+        //! handle same password validation here
+        function _arrayBufferToBase64( buffer: ArrayBuffer ) {
+            var binary = '';
+            var bytes = new Uint8Array( buffer );
+            var len = bytes.byteLength;
+            for (var i = 0; i < len; i++) {
+                binary += String.fromCharCode( bytes[ i ] );
+            }
+            return window.btoa( binary );
+        }
+        e.preventDefault();
+
+        const endpoint = "http://localhost:8000/signup";
+
+        const file_data: ArrayBuffer = await fileRef.current.files[0].arrayBuffer();
+        const b64 = _arrayBufferToBase64(file_data);
+
+        const data = {
+            uname: e.target.uname.value,
+            email: e.target.email.value,
+            phone_number: e.target.pnum.value,
+            adhaar_number: e.target.adhaar.value,
+            pass: e.target.passwd.value,
+            photo: b64,
+            birthday: e.target.bday.value,
+        };
+        const options = {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(data),
+        };
+        const response = await fetch(endpoint, options);
+
+        setFormVal(response.status);
     }
     return (
         <>
@@ -12,7 +52,7 @@ export default function SignUp() {
             <div className="h-full min-h-screen pb-2">
                 <div className="text-center text-5xl font-title pt-4 font-bold drop-shadow-lg">Sign up</div> <br />
                 <div className="flex justify-center items-center flex-col flex-wrap [&>*]:m-1">
-                    <form action="/404" method="post" id={styles.form} className=" flex justify-center items-center flex-col flex-wrap text-lg [&>*]:m-1">
+                    <form onSubmit={handleSubmit} id={styles.form} className=" flex justify-center items-center flex-col flex-wrap text-lg [&>*]:m-1">
                         <input required={true} type="text" name="uname" id="uname" placeholder="User Name" className="h-8 p-4" /> <br />
                         <input required={true} type="email" name="email" id="email" placeholder="Email" className="h-8 p-4" /> <br />
                         <label htmlFor="pnum">Phone number: </label>
@@ -23,7 +63,7 @@ export default function SignUp() {
                         <input required={true} type="password" name="cpasswd" id="cpasswd" placeholder="Confirm Password" className="h-8 p-4" /> <br />
                         <hr className="border-1 rounded-lg border-black w-full" />
                         <label htmlFor="pfp">Upload a profile photo:</label>
-                        <input required={true} type="file" name="pfp" id="pfp" placeholder="pfp" /> <br />
+                        <input required={true} type="file" name="pfp" id="pfp" placeholder="pfp" ref={fileRef} accept="image/" /> <br />
                         <label htmlFor="bday">Birth Date:</label>
                         <input required={true} type="date" name="bday" id="bday" placeholder="Date of Birth" className="w-full" /> <br />
                         <input required={true} id={styles.sibutton} type="submit" value="Sign Up" className="bg-white p-4 cursor-pointer" />
