@@ -1,8 +1,18 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styles from "../styles/sign.module.css"
+
 export default function SignIn() {
+    let [pUname, setPUname] = useState(undefined) as
+        [string | undefined, Dispatch<SetStateAction<string | undefined>>];
+    let provided_uname: string | null = null;
+    useEffect(() => {
+        setPUname(localStorage.getItem("username") ?? undefined)
+        console.log(provided_uname);
+        // localStorage.removeItem("username");
+
+    }, []);
     const [formVal, setFormVal] = useState(0);
     async function handleSubmit(e: any) {
         e.preventDefault();
@@ -53,7 +63,7 @@ export default function SignIn() {
                 {status}
                 <div className="flex justify-center items-center flex-col flex-wrap [&>*]:m-1">
                     <form onSubmit={handleSubmit} id={styles.form} className=" flex justify-center items-center flex-col flex-wrap text-lg [&>*]:m-1">
-                        <input type="text" name="uname" id="uname" placeholder="User Name" className="h-8 p-4" /> <br />
+                        <input type="text" defaultValue={pUname} name="uname" id="uname" placeholder="User Name" className="h-8 p-4" /> <br />
                         <input type="password" name="pass" id="passwd" placeholder="Password" className="h-8 p-4" /> <br />
                         <input id={styles.sibutton} type="submit" value="Sign in" className="bg-white p-4 cursor-pointer" />
                     </form>
