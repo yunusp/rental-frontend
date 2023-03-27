@@ -4,7 +4,7 @@ import styles from "./CarCard.module.css";
 
 export default function CarCard(props: CarCardProps) {
     const carImgUrl: string = props.picture ?? "/favicon.ico";
-    const carYear: string = (props.year ?? "???").toString();
+    const carYear: string = (props.yop ?? "???").toString();
     const carDesc: string = props.description ?? "No description given";
     const link: string = (props.id ?? "/404").toString();
     return (

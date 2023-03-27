@@ -33,7 +33,7 @@ export default function Lend() {
             yop: e.target.yop.value,
             iat: e.target.iat.value,
             ito: e.target.ito.value,
-            picture: "", //! change this asap
+            picture: "placeholder.png", //! change this asap
             desc: "Oh very nice car",
         };
         const options = {

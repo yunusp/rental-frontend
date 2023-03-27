@@ -8,6 +8,8 @@ import "aos/dist/aos.css"
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     AOS.init();
+    // clean up this mess later
+    localStorage.removeItem("username");
   }, []);
   return (
     <BaseLayout>

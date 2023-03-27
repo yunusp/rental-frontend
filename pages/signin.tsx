@@ -1,18 +1,22 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styles from "../styles/sign.module.css"
 
 export default function SignIn() {
     let [pUname, setPUname] = useState(undefined) as
         [string | undefined, Dispatch<SetStateAction<string | undefined>>];
-    let provided_uname: string | null = null;
-    useEffect(() => {
-        setPUname(localStorage.getItem("username") ?? undefined)
-        console.log(provided_uname);
-        localStorage.removeItem("username");
+    // let router = useRouter();
+    // setPUname(() => router.query.uname?.[0]);
 
+    useEffect(() => {
+        const uname = localStorage.getItem("username") ?? undefined;
+        setPUname(uname)
+        console.log("Provided username", pUname);
+        // return () => localStorage.removeItem("username");
     }, []);
+
     const [formVal, setFormVal] = useState(0);
     async function handleSubmit(e: any) {
         e.preventDefault();
