@@ -10,7 +10,7 @@ export default function SignIn() {
     useEffect(() => {
         setPUname(localStorage.getItem("username") ?? undefined)
         console.log(provided_uname);
-        // localStorage.removeItem("username");
+        localStorage.removeItem("username");
 
     }, []);
     const [formVal, setFormVal] = useState(0);
