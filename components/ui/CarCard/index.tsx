@@ -5,8 +5,8 @@ import styles from "./CarCard.module.css";
 export default function CarCard(props: CarCardProps) {
     const carImgUrl: string = props.picture ?? "/favicon.ico";
     const carYear: string = (props.yop ?? "???").toString();
-    const carDesc: string = props.description ?? "No description given";
-    const link: string = (props.id ?? "/404").toString();
+    const carDesc: string = props.desc ?? "No description given";
+    const link: string = (props._id["$oid"] ?? "/404").toString();
     return (
         <Link href={`/book/${link}`} data-aos-duration="2000" data-aos="fade-left" draggable={false} id={styles.card} className=" p-1 border border-black rounded-lg drop-shadow w-64 h-64 flex flex-col content-between justify-start items-center">
             <img src={carImgUrl} alt={carDesc} className="h-1/2" draggable={false} />

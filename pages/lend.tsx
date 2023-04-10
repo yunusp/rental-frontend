@@ -34,7 +34,7 @@ export default function Lend() {
             iat: e.target.iat.value,
             ito: e.target.ito.value,
             picture: "placeholder.png", //! change this asap
-            desc: "Oh very nice car",
+            desc: e.target.desc.value,
         };
         const options = {
             method: "POST",
@@ -61,6 +61,7 @@ export default function Lend() {
                         <input required={true} type="text" name="number" id="cnum" placeholder="Registration number" />
                         <input required={true} type="number" name="yop" id="cbyear" placeholder="Year of purchase" />
                         <input required={true} type="number" name="price" id="cprice" placeholder="Price at which to lend" />
+                        <input required={true} type="text" name="desc" id="desc" placeholder="A short description" />
                         <p>How long would you like to give your car?</p>
                         <span id={styles['form-span']} className="flex flex-row flex-wrap items-center justify-center [&>*]:p-2"> {/*make this responsive*/}
                             <span><label htmlFor="iat">From</label>

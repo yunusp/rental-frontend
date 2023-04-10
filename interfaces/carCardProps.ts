@@ -1,5 +1,5 @@
 export interface CarCardProps {
-    id?: number,   /*Unique id. Filled in by the map index for now*/
+    _id?: any,   /*Unique id. Filled in by the map index for now*/
     owner_id?: number,
     borrower_id?: number,
     name: string,   /*Name of car*/
@@ -11,7 +11,7 @@ export interface CarCardProps {
     iat: String, /*Issued at */
     ito: String, /*Issued to */
     picture: string,   /*url to pic of car*/
-    description?: string,   /*misc descriptions*/
+    desc?: string,   /*misc descriptions*/
 }
 
 export interface CarCardPropObject {
