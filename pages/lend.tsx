@@ -48,6 +48,7 @@ export default function Lend() {
             ito: e.target.ito.value,
             picture: "placeholder.png", //! change this asap
             desc: e.target.desc.value,
+            owner_id: Cookies.get("user") ?? "",
         };
         const options = {
             method: "POST",
