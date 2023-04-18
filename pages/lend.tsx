@@ -1,7 +1,20 @@
 import Head from "next/head";
 import router from "next/router";
 import styles from "../styles/sign.module.css"
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 export default function Lend() {
+
+    let [userCookie, setUserCookie] = useState("null");
+    useEffect(() => {
+        let cc = Cookies.get("user");
+        setUserCookie(cc ?? "");
+    }, []);
+
+    if (userCookie === "") {
+        router.push("/signin");
+    }
+
     async function handleSubmit(e: any) {
         function _arrayBufferToBase64(buffer: ArrayBuffer) {
             var binary = '';
@@ -45,7 +58,6 @@ export default function Lend() {
         };
         const response = await fetch(endpoint, options);
         if (response.status == 201) {
-            // localStorage.setItem("username", e.target.uname.value);
             router.push("/");
         }
     }
