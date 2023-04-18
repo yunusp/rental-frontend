@@ -13,6 +13,7 @@ export default function Index(props: { cars: any; data: any[]; }) {
                 <div className="text-center text-5xl font-title pt-4 font-bold drop-shadow-lg">Browse our selection of cars <a href="/lend" className="text-blue-600">(or add to it)</a></div> <br />
                 <div className="flex justify-center flex-wrap [&>*]:m-1">
                     {props.data.map((data, index) => <CarCard
+                        key={index}
                         {...data}
                     />)}
                 </div>
@@ -27,6 +28,6 @@ export async function getServerSideProps(_: any) {
     const jsonData = await fetch("http://localhost:8000/cars", { method: "get" });
     const data: CarCardPropObject = await jsonData.json();
     return {
-        props: {data: data}
+        props: { data: data }
     };
 }
