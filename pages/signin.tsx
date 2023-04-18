@@ -2,12 +2,13 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useCookies } from 'react-cookie';
 import styles from "../styles/sign.module.css"
 
 export default function SignIn() {
     let [pUname, setPUname] = useState(undefined) as
         [string | undefined, Dispatch<SetStateAction<string | undefined>>];
-    // let router = useRouter();
+    let router = useRouter();
     // setPUname(() => router.query.uname?.[0]);
 
     useEffect(() => {
@@ -18,6 +19,7 @@ export default function SignIn() {
     }, []);
 
     const [formVal, setFormVal] = useState(0);
+    const [cookie, setCookie] = useCookies(["user"]);
     async function handleSubmit(e: any) {
         e.preventDefault();
 
@@ -35,6 +37,15 @@ export default function SignIn() {
             body: new URLSearchParams(data),
         };
         const response = await fetch(endpoint, options);
+
+        if (response.status === 200) {
+            setCookie("user", e.target.uname.value, {
+                path: "/",
+                maxAge: 3600 * 24, // one day
+                sameSite: true,
+            });
+            router.push("/");
+        }
 
         setFormVal(response.status);
     }
