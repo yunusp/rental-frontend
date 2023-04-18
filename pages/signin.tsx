@@ -45,9 +45,12 @@ export default function SignIn() {
                 sameSite: true,
             });
             router.push("/");
+            router.reload();
+
         }
 
         setFormVal(response.status);
+
     }
     let status = undefined;
     switch (formVal) {

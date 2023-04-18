@@ -1,9 +1,15 @@
 import styles from "./header.module.css";
 import Link from "next/link";
 import Cookies from 'js-cookie';
+import { useCookies } from 'react-cookie';
 import { useEffect, useState } from "react";
 
 export default function NavBar() {
+    const [cookie, setCookie] = useCookies(["user"]);
+    function signoutHandler() {
+        setCookie("user", "", { expires: new Date(0) });
+
+    }
     let [userCookie, setUserCookie] = useState("");
     useEffect(() => {
         let cc = Cookies.get("user");
@@ -12,7 +18,7 @@ export default function NavBar() {
     let output;
     if (userCookie !== "") {
         output = (<span id={styles.sign}>
-            <Link className={styles.hclick} href="/">Welcome, {userCookie}</Link>
+            <a className={styles.hclick} href="/" onClick={signoutHandler}>Welcome, {userCookie}</a>
         </span>);
     } else {
         output = (<span id={styles.sign}>
