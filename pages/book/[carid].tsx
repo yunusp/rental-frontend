@@ -28,22 +28,27 @@ export default function Book(props: BookingProps) {
         });
     }, []);
 
-
+    let content = <h1 className="text-5xl text-center">Done!</h1>
+    if (userCookie === carInfo.owner_id) {
+        content = <h1
+            className="text-5xl
+                    text-red-700
+                    text-center
+                    font-bold">
+            You cannot book your own car. <br /> {"¯\\_(ツ)_/¯"} </h1>
+    }
 
     return (
         <>
-
             <Head><title>Rental - Book - {carInfo.name}</title></Head>
             <div className="h-full min-h-screen pb-2">
-                <div className="text-center text-5xl font-title pt-4 font-bold drop-shadow-lg">Book car {carInfo.name}</div> <br />
-                <div id={styles.blinker} className="text-center text-3xl font-bold font-body">This is not complete! <br /> Please do not assume , even if it were for a for a passing moment, that this is final.</div>
-                <div className="flex justify-center flex-wrap [&>*]:m-1">
-                </div>
+                <div className="text-center text-5xl font-title pt-4 font-bold drop-shadow-lg">Book {carInfo.brand} {carInfo.name}</div> <br />
+                {content}
             </div>
         </>
     );
 }
-export function getServerSideProps(context: { params: { carid: any; }; }) {
+export async function getServerSideProps(context: { params: { carid: any; }; }) {
     return {
         props: {
             id: context.params.carid,
