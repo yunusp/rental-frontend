@@ -16,6 +16,6 @@ export interface CarModel {
     desc: string;
 }
 
-export interface ID {
+interface ID {
     $oid: string;
 }
