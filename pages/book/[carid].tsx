@@ -28,7 +28,29 @@ export default function Book(props: BookingProps) {
         });
     }, []);
 
-    let content = <h1 className="text-5xl text-center">Done!</h1>
+    async function handleSubmit(e: any) {
+        e.preventDefault();
+
+        const endpoint = `http://localhost:8000/cars/${props.id}`;
+
+        const data = {
+            b_id: userCookie,
+        };
+        const options = {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(data),
+        };
+        const response = await fetch(endpoint, options);
+
+        if (response.status === 200) {
+            router.push("/");
+        }
+    }
+
+    let content = <h1 className="text-5xl text-center"><button onClick={handleSubmit}>Click me </button></h1>
     if (userCookie === carInfo.owner_id) {
         content = <h1
             className="text-5xl
