@@ -19,7 +19,7 @@ export default function Book(props: BookingProps) {
 
 
     if (userCookie === "") {
-        router.push("/signin");
+        router.replace("/signin");
     }
 
     useEffect(() => {
