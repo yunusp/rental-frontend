@@ -1,7 +1,7 @@
 export interface CarCardProps {
     _id?: any,   /*Unique id. Filled in by the map index for now*/
-    owner_id?: number,
-    borrower_id?: number,
+    owner_id?: string,
+    borrower_id?: string,
     name: string,   /*Name of car*/
     number: string, /*reg number */
     brand: string,
