@@ -16,4 +16,15 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}   
+}
+
+#button {
+    border: 2px solid var(--car-card-primary);
+    border-radius: 5px;
+
+}
+
+#button:hover {
+    background-color: var(--button-bg);
+    box-shadow: -10px 10px 20px var(--car-card-primary);
+}
