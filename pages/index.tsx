@@ -19,9 +19,7 @@ export default function Index(props: { cars: any; data: any[]; }) {
                 </div>
             </div>
         </>
-
     );
-
 }
 
 export async function getServerSideProps(_: any) {
