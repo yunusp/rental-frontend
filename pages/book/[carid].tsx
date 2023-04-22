@@ -50,7 +50,7 @@ export default function Book(props: BookingProps) {
         }
     }
 
-    let content = <input id={styles.button} onClick={handleSubmit} type="submit" value="Confirm" className="bg-white p-4 cursor-pointer" />
+    let content = <input id={styles.button} onClick={handleSubmit} type="submit" value="Confirm" className="bg-white text-5xl p-8 mt-16 cursor-pointer" />
     if (userCookie === carInfo.owner_id) {
         content = <h1
             className="text-5xl
