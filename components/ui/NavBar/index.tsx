@@ -18,7 +18,7 @@ export default function NavBar() {
     let output;
     if (userCookie !== "") {
         output = (<span id={styles.sign}>
-            <a className={styles.hclick} href="/" onClick={signoutHandler}>Welcome, {userCookie}</a>
+            <Link className={styles.hclick} href="/profiles/me">Welcome, {userCookie}</Link>
         </span>);
     } else {
         output = (<span id={styles.sign}>
