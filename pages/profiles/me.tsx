@@ -28,23 +28,27 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
             </div> <br />
 
             <a href="/"><button id={styles.button} onClick={signoutHandler} className="bg-white text-3xl p-4 m-16 cursor-pointer">Log out!</button></a>
-
-            <div>
-                Cars you own <br />
-                {
-                    props.data
-                        .filter(x => x.owner_id === userCookie)
-                        .map(x => <>{x.brand} <br /></>)
-                }
-            </div>
-            <br />
-            <div>
-                Cars you owe <br />
-                {
-                    props.data
-                        .filter(x => x.borrower_id === userCookie)
-                        .map(x => <>{x.brand} <br /></>)
-                }
+            <div className="flex flex-row p-4  [&>*]:m-1 [&>*]:p-1 [&>*]:text-center">
+                <div className="flex flex-col max-h-80">
+                    <span className="text-3xl pb-4">Cars you own</span>
+                    <div className="flex flex-col [&>*]:m-1">
+                        {
+                            props.data
+                                .filter(x => x.owner_id === userCookie)
+                                .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand}</span>)
+                        }
+                    </div>
+                </div>
+                <div className="flex flex-col max-h-80">
+                    <span className="text-3xl pb-4">Cars you owe</span>
+                    <div className="flex flex-col [&>*]:m-1">
+                        {
+                            props.data
+                                .filter(x => x.borrower_id === userCookie)
+                                .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand}</span>)
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     );
