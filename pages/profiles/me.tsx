@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { CarCardPropObject, CarCardProps } from "../../interfaces/carCardProps";
 import styles from "../../styles/book.module.css";
 import { useCookies } from "react-cookie";
+import { UserModel } from "../../interfaces/userModel";
 
 
 export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
@@ -17,6 +18,18 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
         setUserCookie(cc ?? "");
     }, []);
 
+    let [userData, setUserData] = useState({} as UserModel)
+    useEffect(() => {
+        (async () => {
+            if (userCookie !== null) {
+                console.log("user cookie = ", userCookie);
+                let data: UserModel = await ((await fetch(`http://localhost:8000/user/${userCookie}`)).json())
+                setUserData(data);
+            }
+        })();
+
+    }, [userCookie])
+
     function signoutHandler() {
         setCookie("user", "", { expires: new Date(0) });
     }
@@ -28,6 +41,10 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
             </div> <br />
 
             <img src={`http://localhost:8000/public/image-${userCookie}`} alt="Your profile photo" />
+            {userData.email} <br />
+            {userData.phone_number} <br />
+            {userData.birthday} <br />
+            {userData.adhaar_number} <br />
 
             <a href="/"><button id={styles.button} onClick={signoutHandler} className="bg-white text-3xl p-4 m-16 cursor-pointer">Log out!</button></a>
             <div className="flex flex-row justify-around p-4  [&>*]:m-1 [&>*]:p-1 [&>*]:text-center">
