@@ -70,28 +70,28 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
                 <button id={styles.button} onClick={signoutHandler} className="bg-white text-3xl p-4 m-16 cursor-pointer">Log out!</button>
             </div>
 
-                <div className="flex flex-row justify-around p-4  [&>*]:m-1 [&>*]:p-1 [&>*]:text-center">
-                    <div className="flex flex-col max-h-80">
-                        <span className="text-3xl pb-4">Cars you own</span>
-                        <div className="flex flex-col [&>*]:m-1">
-                            {
-                                props.data
-                                    .filter(x => x.owner_id === userCookie)
-                                    .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name}</span>)
-                            }
-                        </div>
-                    </div>
-                    <div className="flex flex-col max-h-80">
-                        <span className="text-3xl pb-4">Cars you owe</span>
-                        <div className="flex flex-col [&>*]:m-1">
-                            {
-                                props.data
-                                    .filter(x => x.borrower_id === userCookie)
-                                    .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name}</span>)
-                            }
-                        </div>
+            <div className="flex flex-row justify-around p-4  [&>*]:m-1 [&>*]:p-1 [&>*]:text-center">
+                <div className="flex flex-col max-h-80">
+                    <span className="text-3xl pb-4">Cars you own</span>
+                    <div className="flex flex-col [&>*]:m-1">
+                        {
+                            props.data
+                                .filter(x => x.owner_id === userCookie)
+                                .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name} <hr className="w-full m-1 border border-black"/> {x.number.toUpperCase()}</span>)
+                        }
                     </div>
                 </div>
+                <div className="flex flex-col max-h-80">
+                    <span className="text-3xl pb-4">Cars you owe</span>
+                    <div className="flex flex-col [&>*]:m-1">
+                        {
+                            props.data
+                                .filter(x => x.borrower_id === userCookie)
+                                .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name} <hr className="w-4 border border-black"/> {x.number.toUpperCase()}</span>)
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
