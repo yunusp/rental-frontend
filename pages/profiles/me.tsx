@@ -27,6 +27,8 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
                 Welcome, {userCookie}
             </div> <br />
 
+            <img src={`http://localhost:8000/public/image-${userCookie}`} alt="Your profile photo" />
+
             <a href="/"><button id={styles.button} onClick={signoutHandler} className="bg-white text-3xl p-4 m-16 cursor-pointer">Log out!</button></a>
             <div className="flex flex-row justify-around p-4  [&>*]:m-1 [&>*]:p-1 [&>*]:text-center">
                 <div className="flex flex-col max-h-80">
