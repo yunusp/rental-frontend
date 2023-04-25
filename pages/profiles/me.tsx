@@ -5,6 +5,7 @@ import { CarCardPropObject, CarCardProps } from "../../interfaces/carCardProps";
 import styles from "../../styles/book.module.css";
 import { useCookies } from "react-cookie";
 import { UserModel } from "../../interfaces/userModel";
+import Head from "next/head";
 
 
 export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
@@ -34,7 +35,8 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
         window.location.href = "/";
     }
 
-    return (
+    return (<>
+        <Head><title>Rental - me</title></Head>
         <div className="h-full min-h-screen pb-2">
             <div className="text-center text-5xl font-title pt-4 font-bold drop-shadow-lg">
                 Welcome, {userCookie}
@@ -77,7 +79,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
                         {
                             props.data
                                 .filter(x => x.owner_id === userCookie)
-                                .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name} <hr className="w-full m-1 border border-black"/> {x.number.toUpperCase()}</span>)
+                                .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name} <hr className="w-full m-1 border border-black" /> {x.number.toUpperCase()}</span>)
                         }
                     </div>
                 </div>
@@ -87,12 +89,13 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
                         {
                             props.data
                                 .filter(x => x.borrower_id === userCookie)
-                                .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name} <hr className="w-4 border border-black"/> {x.number.toUpperCase()}</span>)
+                                .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name} <hr className="w-4 border border-black" /> {x.number.toUpperCase()}</span>)
                         }
                     </div>
                 </div>
             </div>
         </div>
+    </>
     );
 }
 export async function getServerSideProps(context: any) {
