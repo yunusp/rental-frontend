@@ -55,7 +55,7 @@ export default function SignIn() {
     switch (formVal) {
         case 200:   // all good. allow sign in
             status = (<div className="text-green-800 text-center text-2xl">
-                Sign in successful. <br /> This does nothing for now. <br /> Please be patient.
+                Sign in successful. <br /> Please be patient.
             </div>);
             break;
         //! perhaps the next two should be the same.

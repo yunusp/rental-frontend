@@ -2,7 +2,9 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { CarCardPropObject, CarCardProps } from "../../interfaces/carCardProps";
-import styles from "../../styles/book.module.css";
+import b_styles from "../../styles/book.module.css";
+import styles from "../../styles/me.module.css"
+
 import { useCookies } from "react-cookie";
 import { UserModel } from "../../interfaces/userModel";
 import Head from "next/head";
@@ -36,7 +38,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
     }
 
     return (<>
-        <Head><title>Rental - me</title></Head>
+        <Head><title>Rental - {userData.uname}</title></Head>
         <div className="h-full min-h-screen pb-2">
             <div className="text-center text-5xl font-title pt-4 font-bold drop-shadow-lg">
                 Welcome, {userCookie}
@@ -69,7 +71,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
                     </div>
                 </div>
 
-                <button id={styles.button} onClick={signoutHandler} className="bg-white text-3xl p-4 m-16 cursor-pointer">Log out!</button>
+                <button id={b_styles.button} onClick={signoutHandler} className="bg-white text-3xl p-4 m-16 cursor-pointer">Log out!</button>
             </div>
 
             <div className="flex flex-row justify-around p-4  [&>*]:m-1 [&>*]:p-1 [&>*]:text-center">
@@ -79,7 +81,14 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
                         {
                             props.data
                                 .filter(x => x.owner_id === userCookie)
-                                .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name} <hr className="w-full m-1 border border-black" /> {x.number.toUpperCase()}</span>)
+                                .map(x => {
+                                    const cond = new Date(x.ito) > new Date()
+                                    return <span id={cond ? styles["car-fine"] : styles["car-bad"]}>
+                                        {x.brand} {x.name}
+                                        <hr className="w-full m-1 border border-black" />
+                                        {x.number.toUpperCase()}
+                                    </span>
+                                })
                         }
                     </div>
                 </div>
@@ -89,7 +98,14 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
                         {
                             props.data
                                 .filter(x => x.borrower_id === userCookie)
-                                .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name} <hr className="w-4 border border-black" /> {x.number.toUpperCase()}</span>)
+                                .map(x => {
+                                    const cond = new Date(x.ito) > new Date()
+                                    return <span id={cond ? styles["car-fine"] : styles["car-bad"]}>
+                                        {x.brand} {x.name}
+                                        <hr className="w-full m-1 border border-black" />
+                                        {x.number.toUpperCase()}
+                                    </span>
+                                })
                         }
                     </div>
                 </div>

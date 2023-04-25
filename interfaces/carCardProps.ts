@@ -8,8 +8,8 @@ export interface CarCardProps {
     price: number,  /*price of rent*/
     yop: number,  /*How old?*/
     dt: number,  /*For how long*/
-    iat: String, /*Issued at */
-    ito: String, /*Issued to */
+    iat: string, /*Issued at */
+    ito: string, /*Issued to */
     picture: string,   /*url to pic of car*/
     desc?: string,   /*misc descriptions*/
 }

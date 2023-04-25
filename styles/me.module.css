@@ -1,0 +1,6 @@
+#car-fine {
+    @apply p-4 text-xl rounded-md border border-black;
+}
+#car-bad {
+    @apply p-4 text-xl rounded-md border-4 border-red-700;
+}
