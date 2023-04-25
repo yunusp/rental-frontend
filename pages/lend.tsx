@@ -42,7 +42,7 @@ export default function Lend() {
         const data = {
             name: e.target.name.value,
             brand: e.target.brand.value,
-            number: e.target.number.value,
+            number: e.target.number.value.toLowerCase(),
             price: e.target.price.value,
             yop: e.target.yop.value,
             iat: e.target.iat.value,

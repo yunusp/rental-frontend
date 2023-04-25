@@ -7,6 +7,7 @@
 
     to {
         transform: translate(20px, -10px);
+        transform: scale(150%);
         box-shadow: -10px 10px 30px var(--car-card-primary);
 
     }
@@ -23,7 +24,7 @@
     color: var(--primary-color);
     z-index: 3;
     animation-name: hover;
-    animation-duration: 200ms;
+    animation-duration: 100ms;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
 }
