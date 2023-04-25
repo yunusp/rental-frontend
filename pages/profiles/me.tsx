@@ -39,7 +39,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
 
     return (<>
         <Head><title>Rental - {userData.uname}</title></Head>
-        <div className="h-full min-h-screen pb-2">
+        <div className="mb-2 pb-2 h-full min-h-screen overflow-auto">
             <div className="text-center text-5xl font-title pt-4 font-bold drop-shadow-lg">
                 Welcome, {userCookie}
             </div> <br />
