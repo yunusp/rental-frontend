@@ -21,8 +21,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
     let [userData, setUserData] = useState({} as UserModel)
     useEffect(() => {
         (async () => {
-            if (userCookie !== null) {
-                console.log("user cookie = ", userCookie);
+            if (!!(userCookie !== "null")) { // javascript has forced my hand. Matthew 4:7
                 let data: UserModel = await ((await fetch(`http://localhost:8000/user/${userCookie}`)).json())
                 setUserData(data);
             }
@@ -72,7 +71,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
         </div>
     );
 }
-export async function getServerSideProps(_: any) {
+export async function getServerSideProps(context: any) {
     const jsonData = await fetch("http://localhost:8000/cars", { method: "get" });
     const data: CarCardPropObject = await jsonData.json();
     return {

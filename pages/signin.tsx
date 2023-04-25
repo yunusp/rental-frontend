@@ -44,9 +44,8 @@ export default function SignIn() {
                 maxAge: 3600 * 24, // one day
                 sameSite: true,
             });
-            router.push("/");
-            router.reload();
 
+            window.location.href = "/"
         }
 
         setFormVal(response.status);
