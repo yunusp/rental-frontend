@@ -1,6 +1,14 @@
 #car-fine {
-    @apply p-4 text-xl rounded-md border border-black cursor-not-allowed;
+    @apply p-4 text-xl rounded-md  cursor-not-allowed;
 }
 #car-bad {
-    @apply p-4 text-xl rounded-md border-4 border-red-700 cursor-pointer;
+    @apply p-4 text-xl rounded-md  cursor-pointer;
+}
+
+.expired {
+    @apply border-4 border-red-700;
+}
+
+.fine {
+    @apply border border-black
 }
