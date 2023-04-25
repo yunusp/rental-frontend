@@ -71,7 +71,7 @@ export default function Lend() {
                     <form onSubmit={handleSubmit} id={styles.form} className=" flex justify-center items-center flex-col flex-wrap text-lg [&>*]:m-1">
                         <input required={true} type="text" name="name" id="cname" placeholder="Car name" />
                         <input required={true} type="text" name="brand" id="cbrand" placeholder="Car brand" />
-                        <input required={true} type="text" name="number" id="cnum" placeholder="Registration number" />
+                        <input required={true} type="text" name="number" pattern="^\w{2}\d{2}\w{2}\d{1,4}$" id="cnum" placeholder="Car number (XXyyXXyyyy)" />
                         <input required={true} type="number" name="yop" id="cbyear" placeholder="Year of purchase" />
                         <input required={true} type="number" name="price" id="cprice" placeholder="Price at which to lend" />
                         <input required={true} type="text" name="desc" id="desc" placeholder="A short description" />
