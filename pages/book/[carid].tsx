@@ -50,7 +50,11 @@ export default function Book(props: BookingProps) {
         }
     }
 
-    let content = <input id={styles.button} onClick={handleSubmit} type="submit" value="Confirm" className="bg-white text-5xl p-8 mt-16 cursor-pointer" />
+    let content = (<input id={styles.button}
+        onClick={handleSubmit}
+        type="submit"
+        value="Confirm"
+        className="bg-white text-5xl p-8 mt-16 cursor-pointer" />)
     if (userCookie === carInfo.owner_id) {
         content = <h1
             className="text-5xl
@@ -66,7 +70,7 @@ export default function Book(props: BookingProps) {
             <div className="h-full min-h-screen pb-2">
                 <div className="text-center text-5xl font-title pt-4 font-bold drop-shadow-lg">Book {carInfo.brand} {carInfo.name}</div> <br />
                 <div className="flex flex-row justify-center">
-                {content}
+                    {content}
                 </div>
             </div>
         </>

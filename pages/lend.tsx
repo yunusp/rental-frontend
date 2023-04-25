@@ -1,11 +1,12 @@
 import Head from "next/head";
 import router from "next/router";
 import styles from "../styles/sign.module.css"
-import { useEffect, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import Cookies from "js-cookie";
 export default function Lend() {
 
     let [userCookie, setUserCookie] = useState("null");
+    const fileRef: MutableRefObject<any> = useRef(null);
     useEffect(() => {
         let cc = Cookies.get("user");
         setUserCookie(cc ?? "");
@@ -29,8 +30,8 @@ export default function Lend() {
 
         const endpoint = "http://localhost:8000/cars";
 
-        // const file_data: ArrayBuffer = await fileRef.current.files[0].arrayBuffer();
-        // const b64 = _arrayBufferToBase64(file_data);
+        const file_data: ArrayBuffer = await fileRef.current.files[0].arrayBuffer();
+        const b64 = _arrayBufferToBase64(file_data);
 
         // handle same password validation here so that we do not send thing we dont need to.
         // if (e.target.passwd.value !== e.target.cpasswd.value) {
@@ -46,7 +47,7 @@ export default function Lend() {
             yop: e.target.yop.value,
             iat: e.target.iat.value,
             ito: e.target.ito.value,
-            picture: "placeholder.png", //! change this asap
+            picture: b64,
             desc: e.target.desc.value,
             owner_id: Cookies.get("user") ?? "",
         };
@@ -83,7 +84,7 @@ export default function Lend() {
                                 <input required={true} type="date" name="ito" id="toDate" /></span>
                         </span>
                         <label htmlFor="carPhoto">Please upload a picture of your car:</label>
-                        <input required={true} type="file" name="carPhoto" id="cphoto" placeholder="Car photo" /> <br />
+                        <input required={true} ref={fileRef} type="file" name="carPhoto" id="cphoto" placeholder="Car photo" /> <br />
                         <input id={styles.sibutton} type="submit" value="Lend" className="bg-white p-4 cursor-pointer" />
                     </form>
                 </div>
