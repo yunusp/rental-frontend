@@ -31,6 +31,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
 
     function signoutHandler() {
         setCookie("user", "", { expires: new Date(0) });
+        window.location.href = "/";
     }
 
     return (
