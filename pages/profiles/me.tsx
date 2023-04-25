@@ -39,35 +39,58 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
                 Welcome, {userCookie}
             </div> <br />
 
-            <img src={`http://localhost:8000/public/image-${userCookie}`} alt="Your profile photo" />
-            {userData.email} <br />
-            {userData.phone_number} <br />
-            {userData.birthday} <br />
-            {userData.adhaar_number} <br />
+            <div className="flex flex-col items-center">
+                <div className="flex flex-row items-center">
+                    <img className=" rounded-xl w-64 h-64" src={`http://localhost:8000/public/image-${userCookie}`} alt="Your profile photo" />
+                    <div className="flex flex-col pl-4 [&>*]:text-xl">
+                        <table className="[&>tbody>tr>td]:p-4">
+                            <tbody>
+                                <tr>
+                                    <td className="border-r-2 border-black">Email</td>
+                                    <td>{userData.email}</td>
+                                </tr>
+                                <tr>
+                                    <td className="border-r-2 border-black">Phone number</td>
+                                    <td>{userData.phone_number}</td>
+                                </tr>
+                                <tr>
+                                    <td className="border-r-2 border-black">Birth Date</td>
+                                    <td>{userData.birthday}</td>
+                                </tr>
+                                <tr>
+                                    <td className="border-r-2 border-black">Adhaar number</td>
+                                    <td>{userData.adhaar_number}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-            <a href="/"><button id={styles.button} onClick={signoutHandler} className="bg-white text-3xl p-4 m-16 cursor-pointer">Log out!</button></a>
-            <div className="flex flex-row justify-around p-4  [&>*]:m-1 [&>*]:p-1 [&>*]:text-center">
-                <div className="flex flex-col max-h-80">
-                    <span className="text-3xl pb-4">Cars you own</span>
-                    <div className="flex flex-col [&>*]:m-1">
-                        {
-                            props.data
-                                .filter(x => x.owner_id === userCookie)
-                                .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name}</span>)
-                        }
-                    </div>
-                </div>
-                <div className="flex flex-col max-h-80">
-                    <span className="text-3xl pb-4">Cars you owe</span>
-                    <div className="flex flex-col [&>*]:m-1">
-                        {
-                            props.data
-                                .filter(x => x.borrower_id === userCookie)
-                                .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name}</span>)
-                        }
-                    </div>
-                </div>
+                <button id={styles.button} onClick={signoutHandler} className="bg-white text-3xl p-4 m-16 cursor-pointer">Log out!</button>
             </div>
+
+                <div className="flex flex-row justify-around p-4  [&>*]:m-1 [&>*]:p-1 [&>*]:text-center">
+                    <div className="flex flex-col max-h-80">
+                        <span className="text-3xl pb-4">Cars you own</span>
+                        <div className="flex flex-col [&>*]:m-1">
+                            {
+                                props.data
+                                    .filter(x => x.owner_id === userCookie)
+                                    .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name}</span>)
+                            }
+                        </div>
+                    </div>
+                    <div className="flex flex-col max-h-80">
+                        <span className="text-3xl pb-4">Cars you owe</span>
+                        <div className="flex flex-col [&>*]:m-1">
+                            {
+                                props.data
+                                    .filter(x => x.borrower_id === userCookie)
+                                    .map(x => <span className="p-4 text-xl rounded-md border border-black">{x.brand} {x.name}</span>)
+                            }
+                        </div>
+                    </div>
+                </div>
         </div>
     );
 }
