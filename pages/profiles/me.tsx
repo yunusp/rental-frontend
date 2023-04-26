@@ -11,6 +11,29 @@ import Head from "next/head";
 
 
 export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
+
+    async function borrowNuller(e: any, num: string = "1") {
+        e.preventDefault();
+
+        const endpoint = `http://localhost:8000/cars/${num}`;
+
+        const data = {
+            b_id: "super secret password",
+        };
+        const options = {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(data),
+        };
+        const response = await fetch(endpoint, options);
+
+        if (response.status === 200) {
+            router.reload();
+        }
+    }
+
     const router = useRouter();
 
     let [userCookie, setUserCookie] = useState("null");
@@ -85,6 +108,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
                                     const cond = new Date(x.ito) > new Date()
                                     return <span id={cond ? styles["car-fine"] : styles["car-bad"]} className={cond ? styles.fine : styles.expired}>
                                         {x.brand} {x.name}
+
                                         <hr className="w-full m-1 border border-black" />
                                         {x.borrower_id ?? "To let"}
                                     </span>
@@ -100,7 +124,9 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
                                 .filter(x => x.borrower_id === userCookie)
                                 .map(x => {
                                     const cond = new Date(x.ito) > new Date()
-                                    return <span id={cond ? styles["car-fine"] : styles["car-bad"]} className={cond ? styles.fine : styles.expired}>
+                                    return <span id={cond ? styles["car-fine"] : styles["car-bad"]}
+                                        className={cond ? styles.fine : styles.expired}
+                                        onClick={e => borrowNuller(e, x._id["$oid"])}>
                                         {x.brand} {x.name}
                                         <hr className="w-full m-1 border border-black" />
                                         {x.number.toUpperCase()}
