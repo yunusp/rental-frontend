@@ -70,7 +70,7 @@ export default function SignUp() {
                         <input required={true} type="range" min={6000000000} max={9999999999} value={pnumVal} defaultValue={pnumVal} onChange={e => pnumChangeHandler(e)} name="pnum" id="pnum" placeholder="Phone number" className="h-8 p-4" />
                         <label htmlFor="pnum" onChange={e => pnumChangeHandler(e)}>{pnumVal}</label><br />
                         <input required={true} type="number" name="adhaar" id="adhaar" placeholder="Adhaar card number" className="h-8 p-4" /> <br />
-                        <input required={true} type="password" name="passwd" id="passwd" placeholder="Password" className="h-8 p-4" /> <br />
+                        <input required={true} minLength={8} type="password" name="passwd" id="passwd" placeholder="Password" className="h-8 p-4" /> <br />
                         <input required={true} type="password" name="cpasswd" id="cpasswd" placeholder="Confirm Password" className="h-8 p-4" /> <br />
                         <hr className="border-1 rounded-lg border-black w-full" />
                         <label htmlFor="pfp">Upload a profile photo:</label>

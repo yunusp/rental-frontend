@@ -33,12 +33,6 @@ export default function Lend() {
         const file_data: ArrayBuffer = await fileRef.current.files[0].arrayBuffer();
         const b64 = _arrayBufferToBase64(file_data);
 
-        // handle same password validation here so that we do not send thing we dont need to.
-        // if (e.target.passwd.value !== e.target.cpasswd.value) {
-        //     alert("Passwords do not match!");
-        //     return;
-        // }
-
         const data = {
             name: e.target.name.value,
             brand: e.target.brand.value,
@@ -51,6 +45,11 @@ export default function Lend() {
             desc: e.target.desc.value,
             owner_id: Cookies.get("user") ?? "",
         };
+        if ((new Date(e.target.iat.value) < new Date()
+            || Date.parse(e.target.ito.value) < Date.parse(e.target.iat.value))) {
+            alert("There is something wrong with your dates.");
+            return;
+        }
         const options = {
             method: "POST",
             headers: {
