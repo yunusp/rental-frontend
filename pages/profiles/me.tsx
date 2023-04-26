@@ -34,6 +34,21 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
         }
     }
 
+    async function deleteCar(e: any, id: string = "1") {
+        e.preventDefault();
+
+        const endpoint = `http://localhost:8000/cars/${id}`;
+
+        const options = {
+            method: "DELETE",
+        };
+        const response = await fetch(endpoint, options);
+
+        if (response.status === 200) {
+            router.reload();
+        }
+    }
+
     const router = useRouter();
 
     let [userCookie, setUserCookie] = useState("null");
@@ -106,7 +121,12 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
                                 .filter(x => x.owner_id === userCookie)
                                 .map(x => {
                                     const cond = new Date(x.ito) > new Date()
-                                    return <span id={cond ? styles["car-fine"] : styles["car-bad"]} className={cond ? styles.fine : styles.expired}>
+                                    return <span
+                                        onClick={e => deleteCar(e, x._id["$oid"])}
+                                        id={cond ? styles["car-fine"]
+                                            : styles["car-bad"]}
+                                        className={cond ? styles.fine
+                                            : styles.expired}>
                                         {x.brand} {x.name}
 
                                         <hr className="w-full m-1 border border-black" />
