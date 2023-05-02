@@ -98,7 +98,7 @@ export default function Book(props: BookingProps) {
                     onClick={handleSubmit}
                     type="submit"
                     value="Confirm"
-                    className="bg-white text-5xl p-8 mt-16 cursor-pointer" />
+                    className="bg-white text-3xl p-8 mt-16 cursor-pointer" />
             </div>
         </div>
     );
