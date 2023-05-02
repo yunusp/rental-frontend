@@ -11,6 +11,16 @@ import Head from "next/head";
 
 
 export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
+    let [onceState, setOnceState] = useState(false);
+    useEffect(() => {
+        let areAnyCarsExpired = props.data.some(carInfo =>
+        (Math.round((Date.parse(carInfo.ito)
+            - Date.parse(new Date().toUTCString()))) < 0));
+        if (areAnyCarsExpired && !onceState) {
+            setOnceState(true);
+            alert("Some of your cars have expired. Please give them attention");
+        }
+    }, []);
 
     async function borrowNuller(e: any, num: string = "1") {
         e.preventDefault();
