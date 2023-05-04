@@ -19,12 +19,14 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
         let cc = Cookies.get("user");
         if (!cc) router.replace("/signin");
         setUserCookie(cc ?? "");
+
         let expCars = props.data
             .filter(carInfo => (Math.round((Date.parse(carInfo.ito)
                 - Date.parse(new Date().toUTCString()))) < 0))
             .filter(carInfo => (carInfo.borrower_id == cookie.user)
                 || (carInfo.owner_id == cookie.user))
             .length > 0
+
         if (expCars && !onceState && props.data.length) {
             setOnceState(true);
             alert("Some of your cars have expired. Please give them attention");
