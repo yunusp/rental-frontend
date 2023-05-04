@@ -92,7 +92,7 @@ export default function Book(props: BookingProps) {
                 </table>
                 <span className="text-xl max-w-prose text-justify text-gray-700">By clicking confirm, you promise to not do anything bad to the car
                     <span className="font-bold">. Please, we do not want a lawsuit on our hands</span>.
-                    You also consent to letting use send you emails about our service whenever
+                    You also consent to letting us   send you emails about our service whenever
                     we deem  it be necessary</span>
                 <input id={styles.button}
                     onClick={handleSubmit}

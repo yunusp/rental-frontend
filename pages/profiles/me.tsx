@@ -11,15 +11,23 @@ import Head from "next/head";
 
 
 export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
+
     let [onceState, setOnceState] = useState(false);
+    let [userCookie, setUserCookie] = useState("null");
+    const [cookie, setCookie] = useCookies(["user"]);
     useEffect(() => {
+        let cc = Cookies.get("user");
+        if (!cc) router.replace("/signin");
+        setUserCookie(cc ?? "");
         let areAnyCarsExpired = props.data.some(carInfo =>
-        (Math.round((Date.parse(carInfo.ito)
-            - Date.parse(new Date().toUTCString()))) < 0));
-        if (areAnyCarsExpired && !onceState) {
-            setOnceState(true);
-            alert("Some of your cars have expired. Please give them attention");
-        }
+            (Math.round((Date.parse(carInfo.ito)
+                - Date.parse(new Date().toUTCString()))) < 0)
+                && (carInfo.borrower_id == cookie.user) || (carInfo.owner_id == cookie.user));
+            if (areAnyCarsExpired && !onceState && props.data.length) {
+                setOnceState(true);
+                alert(JSON.stringify(props.data[0]));
+                // alert("Some of your cars have expired. Please give them attention");
+            }
     }, []);
 
     async function borrowNuller(e: any, num: string = "1") {
@@ -61,13 +69,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
 
     const router = useRouter();
 
-    let [userCookie, setUserCookie] = useState("null");
-    const [cookie, setCookie] = useCookies(["user"]);
-    useEffect(() => {
-        let cc = Cookies.get("user");
-        if (!cc) router.replace("/signin");
-        setUserCookie(cc ?? "");
-    }, []);
+
 
     let [userData, setUserData] = useState({} as UserModel)
     useEffect(() => {
@@ -86,7 +88,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
     }
 
     return (<>
-        <Head><title>Rental - {userData.uname}</title></Head>
+        <Head><title>Rental - {userData.uname as string}</title></Head>
         <div className="mb-2 pb-2 h-full min-h-screen overflow-auto">
             <div className="text-center text-5xl font-title pt-4 font-bold drop-shadow-lg">
                 Welcome, {userCookie}
