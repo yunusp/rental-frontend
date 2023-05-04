@@ -19,19 +19,21 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
         let cc = Cookies.get("user");
         if (!cc) router.replace("/signin");
         setUserCookie(cc ?? "");
-        let areAnyCarsExpired = props.data.some(carInfo =>
-            (Math.round((Date.parse(carInfo.ito)
-                - Date.parse(new Date().toUTCString()))) < 0)
-                && (carInfo.borrower_id == cookie.user) || (carInfo.owner_id == cookie.user));
-            if (areAnyCarsExpired && !onceState && props.data.length) {
-                setOnceState(true);
-                alert(JSON.stringify(props.data[0]));
-                // alert("Some of your cars have expired. Please give them attention");
-            }
+        let expCars = props.data
+            .filter(carInfo => (Math.round((Date.parse(carInfo.ito)
+                - Date.parse(new Date().toUTCString()))) < 0))
+            .filter(carInfo => (carInfo.borrower_id == cookie.user) || (carInfo.owner_id == cookie.user))
+            .length > 0
+        if (expCars && !onceState && props.data.length) {
+            setOnceState(true);
+            alert("Some of your cars have expired. Please give them attention");
+        }
     }, []);
 
     async function borrowNuller(e: any, num: string = "1") {
         e.preventDefault();
+
+        if (!confirm("Are you sure you want to forfeit this car?")) return;
 
         const endpoint = `http://localhost:8000/cars/${num}`;
 
@@ -55,6 +57,9 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
     async function deleteCar(e: any, id: string = "1") {
         e.preventDefault();
 
+        if (!confirm("Are you sure you want to delete this car?")) return;
+        if (!confirm("This will really delete the car. Are you sure you want to go ahead?")) return;
+
         const endpoint = `http://localhost:8000/cars/${id}`;
 
         const options = {
@@ -74,12 +79,11 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
     let [userData, setUserData] = useState({} as UserModel)
     useEffect(() => {
         (async () => {
-            if (!!(userCookie !== "null")) { // javascript has forced my hand. Matthew 4:7
+            if (!!(userCookie !== "null")) { // javascript has forced my hand. Matthew 4:7t
                 let data: UserModel = await ((await fetch(`http://localhost:8000/user/${userCookie}`)).json())
                 setUserData(data);
             }
         })();
-
     }, [userCookie])
 
     function signoutHandler() {
