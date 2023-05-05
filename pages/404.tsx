@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import styles from '../styles/404.module.css';
 
 export default function FourOhFour() {
   return (<>
@@ -8,7 +9,7 @@ export default function FourOhFour() {
         <div>404</div>
         <div>Not Found</div>
         <div className='mt-4 text-3xl'>That's all we know.</div>
-        <div className='mt-8 text-8xl'>🥺</div>
+        <div id={styles.plead} className='mt-8 text-[12rem]'>🥺</div>
       </div>
     </div>
   </>);
