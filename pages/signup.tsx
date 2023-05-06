@@ -66,10 +66,8 @@ export default function SignUp() {
                         <input required={true} type="text" name="uname" id="uname" placeholder="User Name" className="h-8 p-4" /> <br />
                         {formVal == 403 ? <div className="text-xl text-red-700 font-bold">user name already exists</div> : <div></div>}
                         <input required={true} type="email" name="email" id="email" placeholder="Email" className="h-8 p-4" /> <br />
-                        <label htmlFor="pnum">Phone number: </label>
-                        <input required={true} type="range" min={6000000000} max={9999999999} value={pnumVal} defaultValue={pnumVal} onChange={e => pnumChangeHandler(e)} name="pnum" id="pnum" placeholder="Phone number" className="h-8 p-4" />
-                        <label htmlFor="pnum" onChange={e => pnumChangeHandler(e)}>{pnumVal}</label><br />
-                        <input required={true} type="number" name="adhaar" id="adhaar" placeholder="Adhaar card number" className="h-8 p-4" /> <br />
+                        <input required={true} maxLength={10} minLength={10} type="number"  name="pnum" id="pnum" placeholder="Phone number" className="h-8 p-4" />
+                        <input required={true} type="number" minLength={12} maxLength={12} name="adhaar" id="adhaar" placeholder="Adhaar card number" className="h-8 p-4" /> <br />
                         <input required={true} minLength={8} type="password" name="passwd" id="passwd" placeholder="Password" className="h-8 p-4" /> <br />
                         <input required={true} type="password" name="cpasswd" id="cpasswd" placeholder="Confirm Password" className="h-8 p-4" /> <br />
                         <hr className="border-1 rounded-lg border-black w-full" />

@@ -82,7 +82,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
     let [userData, setUserData] = useState({} as UserModel)
     useEffect(() => {
         (async () => {
-            if (!!(userCookie !== "null")) { // javascript has forced my hand. Matthew 4:7t
+            if (!!(userCookie !== "null")) { // javascript has forced my hand. Matthew 4:7
                 let data: UserModel = await ((await fetch(`http://localhost:8000/user/${userCookie}`)).json())
                 setUserData(data);
             }
@@ -129,6 +129,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
                 </div>
 
                 <button id={b_styles.button} onClick={signoutHandler} className="bg-white text-3xl p-4 m-16 cursor-pointer">Log out!</button>
+                Click on cars to forfeit them.
             </div>
 
             <div className="flex flex-row justify-around p-4  [&>*]:m-1 [&>*]:p-1 [&>*]:text-center">
