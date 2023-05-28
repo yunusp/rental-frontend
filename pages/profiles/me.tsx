@@ -38,7 +38,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
 
         if (!confirm("Are you sure you want to forfeit this car?")) return;
 
-        const endpoint = `http://localhost:8000/cars/${num}`;
+        const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL}/${num}`;
 
         const data = {
             b_id: "super secret password",
@@ -63,7 +63,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
         if (!confirm("Are you sure you want to delete this car?")) return;
         if (!confirm("This will really delete the car. Are you sure you want to go ahead?")) return;
 
-        const endpoint = `http://localhost:8000/cars/${id}`;
+        const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL}/cars/${id}`;
 
         const options = {
             method: "DELETE",
@@ -83,7 +83,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
     useEffect(() => {
         (async () => {
             if (!!(userCookie !== "null")) { // javascript has forced my hand. Matthew 4:7
-                let data: UserModel = await ((await fetch(`http://localhost:8000/user/${userCookie}`)).json())
+                let data: UserModel = await ((await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/${userCookie}`)).json())
                 setUserData(data);
             }
         })();
@@ -103,7 +103,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
 
             <div className="flex flex-col items-center">
                 <div className="flex flex-row items-center">
-                    <img className=" rounded-xl w-64 h-64" src={`http://localhost:8000/public/image-${userCookie}`} alt="Your profile photo" />
+                    <img className=" rounded-xl w-64 h-64" src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/public/image-${userCookie}`} alt="Your profile photo" />
                     <div className="flex flex-col pl-4 [&>*]:text-xl">
                         <table className="[&>tbody>tr>td]:p-4">
                             <tbody>
@@ -181,7 +181,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
     );
 }
 export async function getServerSideProps(context: any) {
-    const jsonData = await fetch("http://localhost:8000/cars", { method: "get" });
+    const jsonData = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/cars`, { method: "get" });
     const data: CarCardPropObject = await jsonData.json();
     return {
         props: { data: data }

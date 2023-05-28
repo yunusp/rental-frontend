@@ -23,7 +23,7 @@ export default function Book(props: BookingProps) {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:8000/cars/${props.id}`).then((val) => {
+        fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/cars/${props.id}`).then((val) => {
             val.json().then(setCarInfo)
         });
     }, []);
@@ -31,7 +31,7 @@ export default function Book(props: BookingProps) {
     async function handleSubmit(e: any) {
         e.preventDefault();
 
-        const endpoint = `http://localhost:8000/cars/${props.id}`;
+        const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL}/cars/${props.id}`;
 
         const data = {
             b_id: userCookie,
@@ -52,7 +52,7 @@ export default function Book(props: BookingProps) {
 
     let content = (
         <div className="flex flex-row items-center justify-around [&>*]:p-4">
-            <img src={`http://localhost:8000/public/car-${carInfo.number}`} alt={carInfo.desc} className="w-1/2" />
+            <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/public/car-${carInfo.number}`} alt={carInfo.desc} className="w-1/2" />
             <div className="flex flex-col items-center">
                 <table className="[&>tbody>tr>td]:p-4 [&>tbody>tr>td]:text-xl w-full">
                     <tbody>

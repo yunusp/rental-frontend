@@ -7,7 +7,7 @@ export default function CarCard(props: CarCardProps) {
     function toUpper(str: string): string {
         return str.toLowerCase().split(" ").map(x => `${x[0].toUpperCase()}${x.substring(1)}`).join(" ")
     }
-    const carImgUrl: string = `http://localhost:8000/public/car-${props.number}`;
+    const carImgUrl: string = `${process.env.NEXT_PUBLIC_BACKEND_URL}/public/car-${props.number}`;
     const carYear: string = (props.yop ?? "???").toString();
     const carDesc: string = props.desc ?? "No description given";
     const link: string = (props._id["$oid"] ?? "/404").toString();

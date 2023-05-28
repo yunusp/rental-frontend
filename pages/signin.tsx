@@ -23,7 +23,7 @@ export default function SignIn() {
     async function handleSubmit(e: any) {
         e.preventDefault();
 
-        const endpoint = "http://localhost:8000/signin";
+        const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL}/signin`;
 
         const data = {
             uname: e.target.uname.value,

@@ -22,7 +22,7 @@ export default function SignUp() {
         }
         e.preventDefault();
 
-        const endpoint = "http://localhost:8000/signup";
+        const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL}/signup`;
 
         const file_data: ArrayBuffer = await fileRef.current.files[0].arrayBuffer();
         const b64 = _arrayBufferToBase64(file_data);

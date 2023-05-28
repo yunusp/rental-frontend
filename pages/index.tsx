@@ -23,7 +23,7 @@ export default function Index(props: { cars: any; data: any[]; }) {
 }
 
 export async function getServerSideProps(_: any) {
-    const jsonData = await fetch("http://localhost:8000/cars", { method: "get" });
+    const jsonData = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/cars`, { method: "get" });
     const data: CarCardPropObject = await jsonData.json();
     return {
         props: { data: data }

@@ -28,7 +28,7 @@ export default function Lend() {
         }
         e.preventDefault();
 
-        const endpoint = "http://localhost:8000/cars";
+        const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL}/cars`;
 
         const file_data: ArrayBuffer = await fileRef.current.files[0].arrayBuffer();
         const b64 = _arrayBufferToBase64(file_data);
