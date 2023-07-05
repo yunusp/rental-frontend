@@ -38,7 +38,7 @@ export default function Me(props: { cars: any; data: Array<CarCardProps>; }) {
 
         if (!confirm("Are you sure you want to forfeit this car?")) return;
 
-        const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL}/${num}`;
+        const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_URL}/cars/${num}`;
 
         const data = {
             b_id: "super secret password",
